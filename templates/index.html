@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook - Full Stack Practice</title>
+</head>
+
+<body>
+    <form action="/" method="post">
+        <input type="text" name="name" id="name" placeholder="Name" autocomplete="name" required>
+        <input type="email" name="email" id="email" placeholder="Email" autocomplete="email" required>
+        <textarea name="message" id="message" placeholder="Message" maxlength="500" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="">
+        {% if entries %}
+        {% for entry in entries %}
+        <ul>
+            <li>{{ entry.name }} - {{ entry.id }}</li>
+            <a href="/delete/{{ entry.id }}">Delete</a>
+        </ul>
+        {% endfor %}
+        {% else %}
+        <p>No entries yet!</p>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
